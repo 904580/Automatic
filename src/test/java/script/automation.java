@@ -13,7 +13,7 @@ public class automation {
 		
 		WebDriverManager.chromedriver().setup();
 		ChromeOptions options = new ChromeOptions();
-		options.addArguments("--remote-allow-origins=*");
+		options.addArguments("--incognito");
 		ChromeDriver driver = new ChromeDriver(options);
 		driver.get("https://www.saucedemo.com");
 		driver.manage().window().maximize();
