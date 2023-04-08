@@ -37,8 +37,13 @@ public class WindowHandle {
 		
 		WebElement firstname =driver.findElement(By.xpath("//input[@id='firstName']"));
 		firstname.sendKeys("Test");
+		driver.close();
 		
+		driver.switchTo().window(ParentWindowID);
 		
+		WebElement switchparent=driver.findElement(By.xpath("//input[@id='name']"));
+		
+		switchparent.sendKeys("switch to parent window");
 	}
 
 }
