@@ -33,7 +33,7 @@ public class AlertPop {
 		WebElement al =driver.findElement(By.xpath("//button[@onclick='jsConfirm()']"));
 		al.click();
 		
-		//Thread.sleep(900);
+		//Thread.sleep(900);'
 		a.dismiss();
 		
 		WebElement a2 =driver.findElement(By.xpath("//button[@onclick='jsPrompt()']"));
