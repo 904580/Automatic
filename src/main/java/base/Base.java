@@ -7,8 +7,15 @@ import java.time.Duration;
 import java.util.Properties;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeOptions;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.Select;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -35,17 +42,50 @@ public class Base {
 	}
 	
 	 public static void mysetup() {
-		
+		 
+		String browserName= prop.getProperty("browser");
+		if(browserName.equals("chrome")) {
 		WebDriverManager.chromedriver().setup();
 		ChromeOptions options= new ChromeOptions();
 		options.addArguments("--remote-allow-origins=*");
 		options.addArguments("--incognito");
 		driver= new ChromeDriver(options);
+		}else if(browserName.equals("firebox")) {
+			WebDriverManager.firefoxdriver().setup();
+			FirefoxOptions options= new FirefoxOptions();
+			options.addArguments("--remote-allow-origins=*");
+			options.addArguments("--incognito");
+			driver = new FirefoxDriver(options);
+		}else if (browserName.equals("edge")) {
+			WebDriverManager.edgedriver().setup();
+			EdgeOptions options = new EdgeOptions();
+			options.addArguments("--remote-allow-origins=*");
+			options.addArguments("--incognito");
+			driver= new EdgeDriver(options);
+		}
 		driver.get(prop.getProperty("url"));
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(15));
 	}
+	 
+	 public void mouseHover(WebElement ele) {//GENERIC METHOD 
+		 Actions a = new Actions(driver);
+		 a.moveToElement(ele).build().perform();
+		 
+	 }
+		 public void selectByVisibleText(WebElement ele, String value) { //generic method
+			 Select s = new Select(ele);
+			 s.selectByVisibleText(value);
+			 
+		 }
+		 
+		 public void selectByIndex(WebElement ele,  int value) { //generic method
+			 
+			 Select s = new Select(ele);
+			 s.selectByIndex(value);
+		 }
+	 }
 
 }
 
