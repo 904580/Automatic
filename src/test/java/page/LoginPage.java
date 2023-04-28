@@ -7,14 +7,13 @@ import base.Base;
 
 public class LoginPage extends Base {
 
-		public void user_enter_the_valid_username_and_password() {
-		WebElement username1 = driver.findElement(By.xpath("//input[@id='user-name']"));
-//		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-//		wait.until(ExpectedConditions.visibilityOf(username1));
+		public void user_enter_the_valid_username_and_password(String uname , String pass) {
+		WebElement username1 = driver.findElement(By.xpath("//input[@id='user-name']"));	
 		explicitWait(username1, 15);
-		username1.sendKeys("standard_user");
+		
+		username1.sendKeys(uname);
 		WebElement password = driver.findElement(By.xpath("//input[@id='password']"));
-		password.sendKeys("secret_sauce");
+		password.sendKeys(pass);
 		 
 	}
 	
