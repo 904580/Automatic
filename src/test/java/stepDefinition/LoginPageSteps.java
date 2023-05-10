@@ -3,6 +3,7 @@ package stepDefinition;
 import org.openqa.selenium.WebDriver;
 
 import base.Base;
+import io.cucumber.java.en.Given;
 //import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -13,11 +14,10 @@ public class LoginPageSteps extends Base {
 	
 	LoginPage login = new LoginPage();
 	
-//	@Given("we have a URL and launch the browser")
-//	public void we_have_a_url_and_launch_the_browser() {
-//		mysetup();
-//		
-//	}
+/*@Given("we have a URL and launch the browser")
+	public void we_have_a_url_and_launch_the_browser() {
+		mysetup();
+}*/
 
 	/*@When("user enter the valid username and password")
 	public void user_enter_the_valid_username_and_password() {
@@ -44,3 +44,4 @@ public class LoginPageSteps extends Base {
 	}
 
 }
+

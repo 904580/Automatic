@@ -47,7 +47,7 @@ public class Hooks extends Base {
 			}
 
 
-		 @After
+		 
 		 public void tearDown(Scenario s) {
 			 if(s.isFailed());
 			 {
