@@ -37,7 +37,7 @@ public class Hooks extends Base {
 					WebDriverManager.edgedriver().setup();
 					EdgeOptions options = new EdgeOptions();
 					options.addArguments("--remote-allow-origins=*");
-					options.addArguments("--incognito");
+					//options.addArguments("--incognito");
 					driver= new EdgeDriver(options);
 				}
 				driver.get(prop.getProperty("url"));

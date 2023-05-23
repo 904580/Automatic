@@ -29,7 +29,7 @@ public class ActionsMethods {
 			Actions a = new Actions(driver);
 		a.sendKeys(Keys.ENTER).build().perform();
 		//a.moveToElement(al);//mouse hover
-//		a.contextClick();// right click
+//		a.contextClick(al2);// right click
 //		a.doubleClick();// double click
 //		a.click();//for clicking
 //		a.dragAndDrop(al, al2);//drag and drop
